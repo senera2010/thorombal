@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thorombal by Livin</title>
+    <style>
+        /* Basic styles */
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        header {
+            background-color: #000;
+            color: #fff;
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        header img {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 50px;  /* Adjust height as needed */
+        }
+        header h1 {
+            margin-left: 60px;  /* To create space for the logo */
+        }
+        nav {
+            background-color: #222;
+            padding: 0.5rem 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-size: 1.2rem;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            padding: 3rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3rem;
+            justify-content: center;
+        }
+        .product {
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 1.5rem;
+            width: calc(30% - 2rem);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .product:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+        .product img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        .product h3 {
+            margin: 1rem 0 0.5rem;
+            font-size: 1.5rem;
+        }
+        .product p {
+            color: #666;
+            font-size: 1.2rem;
+        }
+        .product button {
+            background-color: #000;
+            color: #fff;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .product button:hover {
+            background-color: #444;
+        }
+        footer {
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 3rem;
+            font-size: 1.2rem;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0, 0, 0);
+            background-color: rgba(0, 0, 0, 0.4);
+            padding-top: 60px;
+        }
+        .modal-content {
+            background-color: #fff;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 400px;
+            text-align: center;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .contact-info {
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="your_logo.jpg" alt="Thorombal by Livin Logo">
+        <h1>Thorombal by Livin</h1>
+    </header>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Shop</a>
+        <a href="#" id="contactBtn">Contact</a>
+        <a href="#">About</a>
+    </nav>
+    <div class="container">
+        <div class="product">
+            <img src="https://via.placeholder.com/300" alt="5 in 1 Comb Set">
+            <h3>5 in 1 Comb Set</h3>
+            <p>Price: $100.00</p>
+            <button>Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="https://via.placeholder.com/300" alt="Eyebrow Trimmer">
+            <h3>Eyebrow Trimmer</h3>
+            <p>Price: $150.00</p>
+            <button>Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="https://via.placeholder.com/300" alt="Vanity Mirror Lights">
+            <h3>Vanity Mirror Lights</h3>
+            <p>Price: $200.00</p>
+            <button>Add to Cart</button>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 Thorombal by Livin. All rights reserved.</p>
+    </footer>
+
+    <!-- Modal -->
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Contact Information</h2>
+            <div class="contact-info">
+                <p><strong>Phone:</strong> +94 788500588</p>
+                <p><strong>Email:</strong> livin.enterprises99@gmail.com</p>
+                <p><strong>Instagram:</strong> <a href="https://www.instagram.com/thorombal_by_livin?igsh=d3ZqYTl3dDV4dTEy" target="_blank">thorombal_by_livin</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Modal functionality
+        var modal = document.getElementById("contactModal");
+        var btn = document.getElementById("contactBtn");
+        var span = document.getElementsByClassName("close")[0];
+
+        // Open the modal
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+
+        // Close the modal when the user clicks on <span> (x)
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // Close the modal if the user clicks anywhere outside of the modal
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
